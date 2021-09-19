@@ -1,4 +1,7 @@
 # Hackathon de Engenharia de Dados - A3 Data Challenge Woman
+<p align="center">
+<img src="https://raw.githubusercontent.com/elladarte/thedatagirl_hackathon/main/imagens/Captura%20de%20tela%20de%202021-09-19%2016-15-03.png"/>
+</p>
 
 ## Equipe The Data Girls
  
@@ -7,6 +10,23 @@
 -  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  de  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual;
 - Fonte: Base CNPJ (Dado de 2010 a junho-2021);
 - Livre utilização de ferramentas para compor a solução.
+
+### Tabela de conteúdos
+<!--ts-->
+* [O Desafio](#desafio)
+* [Tabela de Conteudo](#tabela-de-conteudo)
+* [Perguntas Chaves](#perguntas-chaves)
+* [Avaliação](#avaliação)
+* [Solução](#solução)
+    * [Arquitetura](#arquitetura)
+    * [Extração dos dados](#extração-dos-dados)
+    * [Tratamento dos dados](#tratamento-dos-dados)
+    * [Analise dos dados](#analise-dos-dados)
+    * [Visualização dos dados](#visualização-dos-dados)
+* [Deploy](#deploy)
+<!--te-->
+
+
 
 ### Perguntas Chaves
 
@@ -27,3 +47,10 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 - Otimização de Custos.
 
 ### Solução
+- Arquitetura
+- Extração dos dados
+- Tratamento dos dados
+- Analise dos dados
+- Visualização dos dados
+
+### Deploy
