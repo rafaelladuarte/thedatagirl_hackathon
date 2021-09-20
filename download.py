@@ -1,10 +1,13 @@
 from bs4 import BeautifulSoup
 from io import BytesIO
 from s3 import s3
-import requests, zipfile, shutil
-import urllib
-import wget
-import io
+from io import BytesIO
+import zipfile 
+from urllib.request import urlopen
+import requests, shutil
+import pandas as pd
+import os
+
 
 class DownloadFiles():
 
@@ -12,7 +15,7 @@ class DownloadFiles():
         self.url = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/dados-publicos-cnpj"
         r = requests.get(self.url, stream =True)
         self.soup = BeautifulSoup(r.content, "lxml")
-        self.check = zipfile.is_zipfile(io.BytesIO(r.content))
+        self.check = zipfile.is_zipfile(BytesIO(r.content))
         
 
     def get_url(self):
@@ -23,16 +26,21 @@ class DownloadFiles():
         return link_list
 
 
-    def download_zip(self,link):
-        file_name = "teste"
+    def download_file_byte_zip(self,link):
+        zip_name = "zip_teste.zip"
+        file_name = 'file_teste.csv'
         output = BytesIO() 
-        
-        with urllib.request.urlopen(link) as response, open(file_name, 'wb') as out_file:
-            shutil.copyfileobj(response, out_file)
-            with zipfile.ZipFile(file_name) as zf:
-                zf.extractall(output)
-                filebyte = output.getvalue()
 
+        with urlopen(link) as response, open(zip_name, 'wb') as out_file:
+            shutil.copyfileobj(response, out_file)
+            with zipfile.ZipFile(file_name) as z:
+                with z.open(file_name) as f:
+                    file_pd = pd.read_csv(f.read(),sep=";",encoding='utf-8')
+                    file = f.read()
+                    filebyte = output.getvalue(file)
+
+        os.remove(file_name)
+        os.remove(zip_name)
         return filebyte
 
 
@@ -40,7 +48,7 @@ class DownloadFiles():
         filename = ""
         s3.save_csv(filename, filebyte)
         
-        
+
     def start_download(self):
         list_link = self.get_url()
 
@@ -48,8 +56,8 @@ class DownloadFiles():
         for link in list_link:
             i = i + 1
             print(f"Downloading File {i}...")
-            filebytes = self.download(link)
-            #self.send_file_to_s3(filebytes)
+            filebytes = self.download_file_byte_zip(link)
+            self.send_file_to_s3(filebytes)
 
         print("All Downloads Finished")
 
@@ -64,5 +72,5 @@ if __name__ == "__main__":
     for link in links_teste:
         i = i + 1
         print(f"Downloading File {i}...")
-        filebytes = teste.download_zip(link)
+        filebytes = teste.download_file_byte_zip(link)
         print(filebytes)
