@@ -1,11 +1,12 @@
+from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from io import BytesIO
 from s3 import s3
-from io import BytesIO
-import zipfile 
-from urllib.request import urlopen
-import requests, shutil
+
 import pandas as pd
+import requests
+import zipfile 
+import shutil
 import os
 
 
