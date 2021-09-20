@@ -1,6 +1,7 @@
 # Hackathon de Engenharia de Dados - A3 Data Challenge Woman
+
 <p align="center">
-<img src="https://raw.githubusercontent.com/elladarte/thedatagirl_hackathon/main/imagens/Captura%20de%20tela%20de%202021-09-19%2016-15-03.png"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png"/>
 </p>
 
 ## Equipe The Data Girls
