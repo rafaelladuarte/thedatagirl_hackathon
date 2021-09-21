@@ -1,14 +1,12 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-from io import BytesIO
-from s3 import s3
+from storage.bucket import Storage
 
-import pandas as pd
 import requests
 import zipfile 
 import shutil
-import os
 
+cloud = Storage()
 
 class DownloadFiles():
 
@@ -16,7 +14,6 @@ class DownloadFiles():
         self.url = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/dados-publicos-cnpj"
         r = requests.get(self.url, stream =True)
         self.soup = BeautifulSoup(r.content, "lxml")
-        self.check = zipfile.is_zipfile(BytesIO(r.content))
         
 
     def get_url(self):
@@ -27,28 +24,15 @@ class DownloadFiles():
         return link_list
 
 
-    def download_file_byte_zip(self,link):
-        zip_name = "zip_teste.zip"
-        file_name = 'file_teste.csv'
-        output = BytesIO() 
+    def download_files(self,link):
+        file_nm = 'file.csv'
+        zip_nm = 'zip.zip'
 
-        with urlopen(link) as response, open(zip_name, 'wb') as out_file:
+        with urlopen(link) as response, open(zip_nm, 'wb') as out_file:
             shutil.copyfileobj(response, out_file)
-            with zipfile.ZipFile(file_name) as z:
-                with z.open(file_name) as f:
-                    file_pd = pd.read_csv(f.read(),sep=";",encoding='utf-8')
-                    file = f.read()
-                    filebyte = output.getvalue(file)
-
-        os.remove(file_name)
-        os.remove(zip_name)
-        return filebyte
-
-
-    def send_file_to_s3(self, filebyte):
-        filename = ""
-        s3.save_csv(filename, filebyte)
-        
+            with zipfile.ZipFile(file_nm) as z:
+                z.extractall(file_nm)
+        return file_nm,zip_nm
 
     def start_download(self):
         list_link = self.get_url()
@@ -57,12 +41,19 @@ class DownloadFiles():
         for link in list_link:
             i = i + 1
             print(f"Downloading File {i}...")
-            filebytes = self.download_file_byte_zip(link)
-            self.send_file_to_s3(filebytes)
+            file_nm,zip_nm = self.download_files(link)
+            print(f'Download File {i}')
+
+            print(f'Sending File {i}...')
+            cloud.send_csv(file_nm)
+            print(f'Sent File {i}')
+
+            print(f'Removing File {i}...')
+            cloud.remove_file(file_nm)
+            cloud.remove_file(zip_nm)
+            print(f'Remove File {i}...')
 
         print("All Downloads Finished")
-
-        return None
 
 if __name__ == "__main__":
     teste = DownloadFiles()
@@ -73,5 +64,14 @@ if __name__ == "__main__":
     for link in links_teste:
         i = i + 1
         print(f"Downloading File {i}...")
-        filebytes = teste.download_file_byte_zip(link)
-        print(filebytes)
+        file_nm,zip_nm = teste.download_files(link)
+        print(f'Download File {i}')
+
+        print(f'Sending File {i}...')
+        cloud.send_csv(file_nm)
+        print(f'Sent File {i}')
+
+        print(f'Removing File {i}...')
+        cloud.remove_file(file_nm)
+        cloud.remove_file(zip_nm)
+        print(f'Remove File {i}...')
