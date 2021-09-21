@@ -35,3 +35,11 @@ six==1.16.0
 soupsieve==2.2.1
 urllib3==1.26.6
 wget==3.2
+cloudpickle==2.0.0
+dask==2021.9.1
+fsspec==2021.8.1
+locket==0.2.1
+partd==1.2.0
+pyyaml==5.4.1
+toolz==0.11.1
+
