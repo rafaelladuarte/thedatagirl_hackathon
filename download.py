@@ -1,12 +1,14 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-from storage.bucket import Storage
-
+#from cloud.bucket import MyStorage
+from datetime import datetime
+from io import BytesIO
 import requests
 import zipfile 
-import shutil
+import csv
+import os
 
-cloud = Storage()
+#cloud = MyStorage()
 
 class DownloadFiles():
 
@@ -25,15 +27,41 @@ class DownloadFiles():
 
 
     def download_files(self,link):
-        file_nm = 'file.csv'
-        zip_nm = 'zip.zip'
+        file_nm = 'file'
 
-        with urlopen(link) as response, open(zip_nm, 'wb') as out_file:
-            shutil.copyfileobj(response, out_file)
-            with zipfile.ZipFile(file_nm) as z:
+        with BytesIO(requests.get(link).content) as filebytes:
+            with zipfile.ZipFile(filebytes) as z:
                 z.extractall(file_nm)
-                
-        return file_nm,zip_nm
+            
+    
+    def get_file_csv_name(self):
+        lista = os.listdir('file')
+        em, es,so, o = 0,0,0,0
+        today = str(datetime.now())
+        today = today.replace(' ', '_')
+
+        for l in lista:
+            if 'EMPRECSV' in l:
+                em += 1
+                csv_nm = 'EMPRESAS' + str(em) + '.csv'
+                os.rename('file/' +l, csv_nm)
+            elif 'ESTABELE' in l:
+                es += 1
+                csv_nm = 'ESTABELECIMENTO' + str(es) +'.csv'
+                os.rename('file/' +l, csv_nm)
+            elif 'SOCIOCSV' in l:
+                so += 1
+                csv_nm = 'SOCIO' + str(so)+ '.csv'
+                os.rename('file/' +l, csv_nm)
+            else:
+                o += 1
+                csv_nm = 'OUTROS' + str(o) + '.csv'
+                os.rename('file/' +l, csv_nm)
+        
+        print('Remove Dir...')
+        os.rmdir('file')
+
+        return csv_nm
 
     def start_download(self):
         list_link = self.get_url()
@@ -42,16 +70,17 @@ class DownloadFiles():
         for link in list_link:
             i = i + 1
             print(f"Downloading File {i}...")
-            file_nm,zip_nm = self.download_files(link)
+            self.download_files(link)
             print(f'Download File {i}')
 
+            local = self.get_file_csv_name()
+            
             print(f'Sending File {i}...')
-            cloud.send_csv(file_nm)
+            # cloud.send_csv(file_nm)
             print(f'Sent File {i}')
 
             print(f'Removing File {i}...')
-            cloud.remove_file(file_nm)
-            cloud.remove_file(zip_nm)
+            os.remove(local)
             print(f'Remove File {i}...')
 
         print("All Downloads Finished")
@@ -59,20 +88,21 @@ class DownloadFiles():
 if __name__ == "__main__":
     teste = DownloadFiles()
     list_all_links =teste.get_url()
-    links_teste = list_all_links[0:2]
+    links_teste = list_all_links[-2:]
 
     i = 0
     for link in links_teste:
         i = i + 1
         print(f"Downloading File {i}...")
-        file_nm,zip_nm = teste.download_files(link)
+        teste.download_files(link)
         print(f'Download File {i}')
 
+        local = teste.get_file_csv_name()
+        
         print(f'Sending File {i}...')
-        cloud.send_csv(file_nm)
+        # cloud.send_csv(file_nm)
         print(f'Sent File {i}')
 
         print(f'Removing File {i}...')
-        cloud.remove_file(file_nm)
-        cloud.remove_file(zip_nm)
+        os.remove(local)
         print(f'Remove File {i}...')

@@ -1,7 +1,7 @@
 from download import DownloadFiles
-from storage.bucket import Storage
+from cloud.bucket import MyStorage
 
-cloud_storage = Storage()
+cloud_storage = MyStorage()
 
 ## download and send to storage
 download = DownloadFiles()

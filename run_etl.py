@@ -1,8 +1,8 @@
 from etl import dados_simples,dominio,empresa,estabelecimento,socios
 from database.bigquery import BigQuery
-from storage.bucket import Storage
+from cloud.bucket import MyStorage
 
-cloud_storage = Storage()
+cloud_storage = MyStorage()
 big_query = BigQuery()
 
 list_csv_names = []
