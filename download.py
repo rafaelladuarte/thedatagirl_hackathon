@@ -32,6 +32,7 @@ class DownloadFiles():
             shutil.copyfileobj(response, out_file)
             with zipfile.ZipFile(file_nm) as z:
                 z.extractall(file_nm)
+                
         return file_nm,zip_nm
 
     def start_download(self):

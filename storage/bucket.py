@@ -17,6 +17,6 @@ class Storage():
         return df
 
     def remove_file(self,file):
-        os.remove(file)
+        os.remove('gs://' + file)
 
     

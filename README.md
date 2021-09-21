@@ -49,6 +49,11 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 
 ### Solução
 - Arquitetura
+
+<p align="center">
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/infraestrutura.png" alt="Image" height="42" width="42"/>
+</p>
+
 - Extração dos dados
 - Tratamento dos dados
 - Analise dos dados
