@@ -83,4 +83,4 @@ class DownloadFiles():
 if __name__ == "__main__":
     teste = DownloadFiles()
     list_all_links = teste.get_url()
-    print(list_all_links[20:25])
+    print(list_all_links[5:10])   
