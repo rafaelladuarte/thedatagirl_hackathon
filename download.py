@@ -37,6 +37,7 @@ class DownloadFiles():
         lista = os.listdir('file')
         today = str(datetime.now())
         today = today.replace(' ', '_')
+        today = today.replace(':', '-')
 
         for l in lista:
             if 'EMPRECSV' in l:
