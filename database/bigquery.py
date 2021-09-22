@@ -5,7 +5,7 @@ class BigQuery:
     def __init__(self):
         self.client = bigquery.Client()
 
-    def insert_batch(self, data,table):
+    def insert_batch(self, data, table):
 
         table_name = ""
 
