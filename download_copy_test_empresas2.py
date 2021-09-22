@@ -83,4 +83,21 @@ class DownloadFiles():
 if __name__ == "__main__":
     teste = DownloadFiles()
     list_all_links = teste.get_url()
-    print(list_all_links[4])   
+    links_teste = list_all_links[4]
+
+    i = 0
+    for link in links_teste:
+        i = i + 1
+        print(f"Downloading File {i}...")
+        teste.download_files(link)
+        print(f'Downloaded File {i}')
+
+        local = teste.get_file_csv_name()
+
+        print(f'Uploading File {i}...')
+        cloud.send_csv(local, local)
+        print(f'Uploaded File {i}')
+
+        print(f'Removing File {i}...')
+        os.remove(local)
+        print(f'Removed File {i}...')
