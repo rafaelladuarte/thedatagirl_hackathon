@@ -22,7 +22,7 @@ class DownloadFiles():
         for a in self.soup.find_all("a", class_ = "external-link", href = True):
             link_list.append(a["href"])
 
-        return link_list[-2:]
+        return link_list
 
 
     def download_files(self, link):
@@ -80,6 +80,23 @@ class DownloadFiles():
         print("All Operations Finished")
 
 if __name__ == "__main__":
-    DownloadFiles().start_download()
-    #para fazer a operação com todos os arquivos,
-    #remover o [-2:] do return do get_url
+    teste = DownloadFiles()
+    list_all_links = teste.get_url()
+    links_teste = list_all_links[-2:]
+
+    i = 0
+    for link in links_teste:
+        i = i + 1
+        print(f"Downloading File {i}...")
+        teste.download_files(link)
+        print(f'Downloaded File {i}')
+
+        local = teste.get_file_csv_name()
+
+        print(f'Uploading File {i}...')
+        cloud.send_csv(local, local)
+        print(f'Uploaded File {i}')
+
+        print(f'Removing File {i}...')
+        os.remove(local)
+        print(f'Removed File {i}...')
