@@ -2,25 +2,12 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from datetime import datetime
 from io import BytesIO
-from google.cloud import storage
+from cloud.bucket import MyStorage
 import requests
-import zipfile 
+import zipfile
 import os
 
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    """
-    Uploads a file to the bucket.
-    Source: https://cloud.google.com/storage/docs/uploading-objects
-    """
-            
-    storage_client = storage.Client()
-    bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
-
-    blob.upload_from_filename(source_file_name)
-
-    print(f"File {source_file_name} uploaded to {destination_blob_name}.")
-
+cloud = MyStorage()
 
 class DownloadFiles():
 
@@ -70,7 +57,6 @@ class DownloadFiles():
 
         return csv_nm
 
-
     def start_download(self):
         list_link = self.get_url()
 
@@ -84,14 +70,14 @@ class DownloadFiles():
             local = self.get_file_csv_name()
             
             print(f'Uploading File {i}...')
-            upload_blob("thedatagirls-hackathon-a3", local, local)
+            cloud.send_csv(local, local)
+            print(f'Uploading File {i}...')
 
             print(f'Removing File {i}...')
             os.remove(local)
             print(f'Removed File {i}...')
 
         print("All Operations Finished")
-
 
 if __name__ == "__main__":
     DownloadFiles().start_download()
