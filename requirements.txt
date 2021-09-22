@@ -43,3 +43,10 @@ partd==1.2.0
 pyyaml==5.4.1
 toolz==0.11.1
 google-cloud-storage==1.42.2
+aiohttp==3.7.4.post0
+async-timeout==3.0.1
+fsspec==2021.8.1
+gcsfs==2021.8.1
+google-auth-oauthlib==0.4.6
+multidict==5.1.0
+yarl==1.6.3
