@@ -83,7 +83,7 @@ class DownloadFiles():
 if __name__ == "__main__":
     teste = DownloadFiles()
     list_all_links = teste.get_url()
-    link_teste = list_all_links[5:10]
+    link_teste = list_all_links[4:10]
 
     i = 0
     for link in links_teste:
