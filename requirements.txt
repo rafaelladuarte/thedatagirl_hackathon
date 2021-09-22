@@ -42,4 +42,4 @@ locket==0.2.1
 partd==1.2.0
 pyyaml==5.4.1
 toolz==0.11.1
-
+google-cloud-storage==1.42.2
