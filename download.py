@@ -1,20 +1,32 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-#from cloud.bucket import MyStorage
 from datetime import datetime
 from io import BytesIO
+from google.cloud import storage
 import requests
 import zipfile 
-import csv
 import os
 
-#cloud = MyStorage()
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+    """
+    Uploads a file to the bucket.
+    Source: https://cloud.google.com/storage/docs/uploading-objects
+    """
+            
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    blob.upload_from_filename(source_file_name)
+
+    print(f"File {source_file_name} uploaded to {destination_blob_name}.")
+
 
 class DownloadFiles():
 
     def __init__(self):
         self.url = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/dados-publicos-cnpj"
-        r = requests.get(self.url, stream =True)
+        r = requests.get(self.url, stream = True)
         self.soup = BeautifulSoup(r.content, "lxml")
         
 
@@ -23,10 +35,10 @@ class DownloadFiles():
         for a in self.soup.find_all("a", class_ = "external-link", href = True):
             link_list.append(a["href"])
 
-        return link_list
+        return link_list[-2:]
 
 
-    def download_files(self,link):
+    def download_files(self, link):
         file_nm = 'file'
 
         with BytesIO(requests.get(link).content) as filebytes:
@@ -36,32 +48,28 @@ class DownloadFiles():
     
     def get_file_csv_name(self):
         lista = os.listdir('file')
-        em, es,so, o = 0,0,0,0
         today = str(datetime.now())
         today = today.replace(' ', '_')
 
         for l in lista:
             if 'EMPRECSV' in l:
-                em += 1
-                csv_nm = 'EMPRESAS' + str(em) + '.csv'
-                os.rename('file/' +l, csv_nm)
+                csv_nm = 'EMPRESAS_' + str(today) + '.csv'
+                os.rename('file/' + l, csv_nm)
             elif 'ESTABELE' in l:
-                es += 1
-                csv_nm = 'ESTABELECIMENTO' + str(es) +'.csv'
-                os.rename('file/' +l, csv_nm)
+                csv_nm = 'ESTABELECIMENTO_' + str(today) +'.csv'
+                os.rename('file/' + l, csv_nm)
             elif 'SOCIOCSV' in l:
-                so += 1
-                csv_nm = 'SOCIO' + str(so)+ '.csv'
-                os.rename('file/' +l, csv_nm)
+                csv_nm = 'SOCIO_' + str(today)+ '.csv'
+                os.rename('file/' + l, csv_nm)
             else:
-                o += 1
-                csv_nm = 'OUTROS' + str(o) + '.csv'
-                os.rename('file/' +l, csv_nm)
+                csv_nm = f'{l[-7:-3]}_{str(today)}.csv'
+                os.rename('file/' + l, csv_nm)
         
-        print('Remove Dir...')
+        print('Removing Directory...')
         os.rmdir('file')
 
         return csv_nm
+
 
     def start_download(self):
         list_link = self.get_url()
@@ -69,40 +77,23 @@ class DownloadFiles():
         i = 0
         for link in list_link:
             i = i + 1
-            print(f"Downloading File {i}...")
+            print(f'Downloading File {i}...')
             self.download_files(link)
-            print(f'Download File {i}')
+            print(f'Downloaded File {i}')
 
             local = self.get_file_csv_name()
             
-            print(f'Sending File {i}...')
-            # cloud.send_csv(file_nm)
-            print(f'Sent File {i}')
+            print(f'Uploading File {i}...')
+            upload_blob("thedatagirls-hackathon-a3", local, local)
 
             print(f'Removing File {i}...')
             os.remove(local)
-            print(f'Remove File {i}...')
+            print(f'Removed File {i}...')
 
-        print("All Downloads Finished")
+        print("All Operations Finished")
+
 
 if __name__ == "__main__":
-    teste = DownloadFiles()
-    list_all_links =teste.get_url()
-    links_teste = list_all_links[-2:]
-
-    i = 0
-    for link in links_teste:
-        i = i + 1
-        print(f"Downloading File {i}...")
-        teste.download_files(link)
-        print(f'Download File {i}')
-
-        local = teste.get_file_csv_name()
-        
-        print(f'Sending File {i}...')
-        # cloud.send_csv(file_nm)
-        print(f'Sent File {i}')
-
-        print(f'Removing File {i}...')
-        os.remove(local)
-        print(f'Remove File {i}...')
+    DownloadFiles().start_download()
+    #para fazer a operação com todos os arquivos,
+    #remover o [-2:] do return do get_url
