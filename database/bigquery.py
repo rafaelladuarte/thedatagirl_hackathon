@@ -16,3 +16,5 @@ class BigQuery:
             print(f'Sent {len(data)} in {table_name}')
         else:
             print("Errors: {}".format(errors))
+
+
