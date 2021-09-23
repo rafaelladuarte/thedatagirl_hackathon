@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from datetime import datetime
 from io import BytesIO
-from cloud.bucket import MyStorage
+from mycloud.bucket import MyStorage
 import requests
 import zipfile
 import os
