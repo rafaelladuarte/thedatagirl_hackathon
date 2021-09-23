@@ -21,8 +21,12 @@ class MyStorage():
         blob.upload_from_filename(local_file)
 
     def get_csv(self,file_name):
-        blob  = self.bucket.blob(file_name)
-        df = dd.read_csv(f'gs://{bucket_name}/{file_name}', encoding = 'iso-8859-1', header = None, sep=';')
+        df = dd.read_csv(
+            f'gs://{bucket_name}/{file_name}', 
+            encoding = 'iso-8859-1', 
+            header = None, 
+            sep=';'
+        )
     
         return df
 
