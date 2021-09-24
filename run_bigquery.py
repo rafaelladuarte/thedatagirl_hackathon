@@ -3,16 +3,16 @@ from database.bigquery import BigQuery
 
 big_query = BigQuery()
 
-# for csv_table in all_schemas:
-#     schema_base = csv_table['schema']
-#     table = csv_table['table']
-#     csv = csv_table['csv']
+for csv_table in all_schemas:
+    schema_base = csv_table['schema']
+    table = csv_table['table']
+    csv = csv_table['csv']
     
-#     big_query.start_send(
-#         schema_base=schema_base,
-#         table= table,
-#         csv= csv
-#     )
+    big_query.start_send(
+        schema_base=schema_base,
+        table= table,
+        csv= csv
+    )
 
 
 if __name__ == "__main__":

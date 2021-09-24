@@ -1,8 +1,8 @@
-from urllib.request import urlopen
+from mycloud.bucket import MyStorage
 from bs4 import BeautifulSoup
 from datetime import datetime
 from io import BytesIO
-from mycloud.bucket import MyStorage
+
 import requests
 import zipfile
 import os
@@ -58,6 +58,7 @@ class DownloadFiles():
 
         return csv_nm
 
+
     def start_download(self):
         list_link = self.get_url()
 
@@ -79,6 +80,7 @@ class DownloadFiles():
             print(f'Removed File {i}...')
 
         print("All Operations Finished")
+
 
 if __name__ == "__main__":
     teste = DownloadFiles()
