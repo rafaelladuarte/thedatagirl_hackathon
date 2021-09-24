@@ -1,5 +1,5 @@
 from download import DownloadFiles
-from cloud.bucket import MyStorage
+from mycloud.bucket import MyStorage
 
 cloud_storage = MyStorage()
 
