@@ -14,9 +14,9 @@ Participantes:
 - Rafaella Duarte
 - Carolina Dias
 
-### 🟢 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
-### 🟢 [Demonstraçao da Solução (5 minutos)]()
-### 🟢 [Dashboard com as Respostas]()
+### 🟣 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
+### 🟣 [Demonstraçao da Solução (5 minutos)]()
+### 🟣 [Dashboard com as Respostas](https://datastudio.google.com/u/0/reporting/e24cf11b-9f7d-45ae-864e-807b0b874004/page/p_v4vb5pcunc)
 
 
 ## Desafio
