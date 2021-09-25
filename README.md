@@ -58,7 +58,7 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 
 ## Solução
 
-###Arquitetura
+- Arquitetura
 
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
