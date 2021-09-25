@@ -9,6 +9,12 @@ class BigQuery:
         self.group_table = "hackathon-a3-data.the_data_girls."
 
     def create_schema(self,schema_base):
+        """
+        Receive a dictionary where the key is the field name
+        and the value is the data type of the field in the table schema and
+        returns a schema list in the default Big Query
+        """
+
         schema = [
             bigquery.SchemaField(key, schema_base[key])
             for key in schema_base
@@ -17,6 +23,8 @@ class BigQuery:
         return schema
 
     def create_job_config(self,schema_table):
+        # Get the table schema by adding it to the table settings
+
         job_config = bigquery.LoadJobConfig(
             schema = schema_table,
             skip_leading_rows = 0,
@@ -29,6 +37,12 @@ class BigQuery:
         return job_config
 
     def send_csv(self,table,csv,job_config):
+        """
+        Set the uri of the csv file in the bucket and the name of 
+        the table it will receive the data load, then send it by API 
+        request, waits for the job to complete and return api response
+        """
+
         uri = self.uri + csv
         table_id = self.group_table + table
 
@@ -36,15 +50,20 @@ class BigQuery:
             uri, 
             table_id, 
             job_config = job_config
-        ) # Make an API request.
+        ) 
 
-        load_job.result() # Waits for the job to complete.
+        load_job.result()
 
-        destination_table = self.client.get_table(table_id) # Make an API request.
+        destination_table = self.client.get_table(table_id) 
 
         return destination_table
 
     def start_send(self,schema_base,table,csv):
+        """
+        Function responsible for calling the schema creation functions,
+        configuration of the request and sending the csv, returning to
+        number of records entered
+        """
 
         print(f'Creating schema for {table}...')
         schema = self.create_schema(schema_base)
