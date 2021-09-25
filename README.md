@@ -16,7 +16,7 @@ Participantes:
 
 ### 🟢 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
 ### 🟢 [Demonstraçao da Solução (5 minutos)]()
-### 🟢 [Dashboard com as Respostas[()
+### 🟢 [Dashboard com as Respostas]()
 
 
 ## Desafio
@@ -64,9 +64,9 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
 Na GCP foram utilizados os seguintes serviços:
-Google Cloud Engine Computing para rodar os códigos.
-Google Cloud Storage para o armazenamento dos dados.
-Google BigQuery para a análise dos dados.
+- Google Cloud Engine Computing para rodar os códigos.
+- Google Cloud Storage para o armazenamento dos dados.
+- Google BigQuery para a análise dos dados.
 O Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
