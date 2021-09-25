@@ -1,0 +1,33 @@
+CREATE TABLE `hackathon-a3-data.the_data_girls.q03_v2_empresas_novas` (
+    tipo	STRING,	
+    opcao	STRING,
+    municipio	STRING,
+    uf STRING,
+    data_inicio_atividade	STRING,	
+    quantidade	INTEGER,	
+);
+
+INSERT INTO `hackathon-a3-data.the_data_girls.q03_v2_empresas_novas` 
+SELECT
+    'SIMPLES' as tipo,
+    opcao_pelo_simples as opcao,
+    municipio,
+    uf,
+    FORMAT_DATE('%Y-%m',data_inicio_atividade) AS data_inicio_atividade,
+    COUNT(*) as quantidade
+FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
+WHERE data_inicio_atividade > '2010-01-01'
+AND data_inicio_atividade  < '2021-06-01'
+GROUP BY 1,2,3,4,5
+UNION ALL 
+SELECT 
+    'MEI' as  tipo,
+    opcao_pelo_mei AS opcao,
+    municipio,
+    uf,
+    FORMAT_DATE('%Y-%m',data_inicio_atividade) AS data_inicio_atividade,
+    COUNT(*) as quantidade 
+FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
+WHERE data_inicio_atividade > '2010-01-01'
+AND data_inicio_atividade  < '2021-06-01'
+GROUP BY 1,2,3,4,5
