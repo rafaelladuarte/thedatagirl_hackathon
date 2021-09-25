@@ -7,17 +7,24 @@ import requests
 import zipfile
 import os
 
-cloud = MyStorage()
+cloud = MyStorage() # Construct a Storage object.
 
 class DownloadFiles():
 
     def __init__(self):
+        """
+        Download an IRS webpage returning a response object
+        to collect all existing information
+        """
         self.url = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/dados-publicos-cnpj"
         r = requests.get(self.url, stream = True)
         self.soup = BeautifulSoup(r.content, "lxml")
         
 
     def get_url(self):
+        """
+        Scrap the response object to collect the links from the zip files
+        """
         link_list = []
         for a in self.soup.find_all("a", class_ = "external-link", href = True):
             link_list.append(a["href"])
@@ -26,6 +33,10 @@ class DownloadFiles():
 
 
     def download_files(self, link):
+        """
+        Download the zip file link into memory and then unzip 
+        and extract in the file directory
+        """
         file_nm = 'file'
 
         with BytesIO(requests.get(link).content) as filebytes:
@@ -34,6 +45,12 @@ class DownloadFiles():
             
     
     def get_file_csv_name(self):
+        """
+        Lists extracted files into the file directory
+        and renamed according to spreadsheet type to facilitate
+        the identification. Then we remove the directory from memory
+        not to fill the machine's memory
+        """
         lista = os.listdir('file')
         today = str(datetime.now())
         today = today.replace(' ', '_')
@@ -60,6 +77,9 @@ class DownloadFiles():
 
 
     def start_download(self):
+        """
+        Starts download of spreadsheets and sends to bucket
+        """
         list_link = self.get_url()
 
         i = 0
