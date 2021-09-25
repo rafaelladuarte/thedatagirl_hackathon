@@ -20,13 +20,12 @@ Participantes:
 
 
 ## Desafio
->>>>>>> cc42c5a71770e52a0615123244464acb010021c9
 
 -  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  de  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual;
 - Fonte: Base CNPJ (Dado de 2010 a junho-2021);
 - Livre utilização de ferramentas para compor a solução.
 
-## Tabela de conteúdos
+## Tabela de Conteúdos
 <!--ts-->
 * [O Desafio](#desafio)
 * [Tabela de Conteudo](#tabela-de-conteudo)
@@ -60,7 +59,6 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 ## Solução
 
 ###Arquitetura
->>>>>>> cc42c5a71770e52a0615123244464acb010021c9
 
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
@@ -71,7 +69,6 @@ Na GCP foram utilizados os seguintes serviços:
 O Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
-<<<<<<< HEAD
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="400" width="600"/>
 </p>
 
@@ -79,10 +76,10 @@ O Google Data Studio foi utilizado para as visualizações dos dados.
 
 Os dados foram extraidos por meio de um scraper que percorre a pagina da Receita Federal, baixamos os arquivos zip e em seguida extraimos os arquivos csv para o Google Cloud Storage. Decidimos enviar para a cloud os dados brutos, para nao ser necessario refazer a coleta para o tratamento dos dados, assim economizando capacidade computacional e tempo.
 
-Script automatizado responsavel: 
+Script automatizado responsável: 
     run_storage.py
 
-- Tratamento e Analise dos dados
+- Tratamento e Análise dos dados
 
 Para economizar poder computacional, preferimos realizar o tratamento e a analise de dados no Google BigQuery. Desta forma, realizamos a carga dos arquivos csv brutos existentes no Google Cloud Storage, enviando cada um deles para suas respectivas tabelas, de acordo com o schema criado.
 
