@@ -51,7 +51,7 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 - Arquitetura
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/infraestrutura.png" alt="Image" height="500" width="800"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="500" width="800"/>
 </p>
 
 - Extração dos dados
