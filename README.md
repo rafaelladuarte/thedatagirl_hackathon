@@ -10,7 +10,10 @@
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200" width="200"/>
 </p>
 
- 
+Participantes:
+Rafaella Duarte
+Carolina Dias
+
 ### Desafio
 
 -  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  de  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual;
@@ -29,7 +32,6 @@
     * [Tratamento dos dados](#tratamento-dos-dados)
     * [Analise dos dados](#analise-dos-dados)
     * [Visualização dos dados](#visualização-dos-dados)
-* [Deploy](#deploy)
 <!--te-->
 
 ### Perguntas Chaves
@@ -52,9 +54,16 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 
 ### Solução
 - Arquitetura
+Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
+
+Na GCP foram utilizados os seguintes serviços:
+Google Cloud Engine Computing para rodar os códigos.
+Google Cloud Storage para o armazenamento dos dados.
+Google BigQuery para a análise dos dados.
+O Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="500" width="800"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="600" width="800"/>
 </p>
 
 - Extração dos dados
