@@ -103,18 +103,18 @@ class DownloadFiles():
 
 
 if __name__ == "__main__":
-    teste = DownloadFiles()
-    list_all_links = teste.get_url()
+    demo = DownloadFiles()
+    list_all_links = demo.get_url()
     links_teste = list_all_links[-2:]
 
     i = 0
     for link in links_teste:
         i = i + 1
         print(f"Downloading File {i}...")
-        teste.download_files(link)
+        demo.download_files(link)
         print(f'Downloaded File {i}')
 
-        local = teste.get_file_csv_name()
+        local = demo.get_file_csv_name()
 
         print(f'Uploading File {i}...')
         cloud.send_csv(local, local)

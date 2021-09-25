@@ -16,16 +16,16 @@ for csv_table in all_schemas:
 
 
 if __name__ == "__main__":
-    schema_teste = {
+    schema_demo = {
         'codigo':"STRING",
         'nome':"STRING",
     }
 
-    table_teste = 'cnae'
+    table_teste = 'demo'
     csv_teste = 'CNAE*'
 
     big_query.start_send(
-        schema_base=schema_teste,
+        schema_base=schema_demo,
         table= table_teste,
         csv= csv_teste
     )

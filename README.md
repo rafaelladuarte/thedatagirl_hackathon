@@ -1,7 +1,7 @@
 # Hackathon de Engenharia de Dados - A3 Data Challenge Woman
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="400" width="800"/>
 </p>
 
 ## Equipe The Data Girls
@@ -11,9 +11,9 @@
 </p>
 
 Participantes:
-Rafaella Duarte
-Carolina Dias
-
+- [Carolina Dias](https://www.linkedin.com/in/carodias/)
+- [Rafaella Duarte](https://www.linkedin.com/in/rafaella-duarte-044276130/)
+    
 ### Desafio
 
 -  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  de  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual;
@@ -29,8 +29,7 @@ Carolina Dias
 * [Solução](#solução)
     * [Arquitetura](#arquitetura)
     * [Extração dos dados](#extração-dos-dados)
-    * [Tratamento dos dados](#tratamento-dos-dados)
-    * [Analise dos dados](#analise-dos-dados)
+    * [Tratamento e Analise dos dados](#tratamento-e-analise-dos-dados)
     * [Visualização dos dados](#visualização-dos-dados)
 <!--te-->
 
@@ -54,6 +53,7 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 
 ### Solução
 - Arquitetura
+
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
 Na GCP foram utilizados os seguintes serviços:
@@ -63,12 +63,28 @@ Google BigQuery para a análise dos dados.
 O Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="600" width="800"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="400" width="600"/>
 </p>
 
 - Extração dos dados
-- Tratamento dos dados
-- Analise dos dados
+
+Os dados foram extraidos por meio de um scraper que percorre a pagina da Receita Federal, baixamos os arquivos zip e em seguida extraimos os arquivos csv para o Google Cloud Storage. Decidimos enviar para a cloud os dados brutos, para nao ser necessario refazer a coleta para o tratamento dos dados, assim economizando capacidade computacional e tempo.
+
+Script automatizado responsavel: 
+    run_storage.py
+
+- Tratamento e Analise dos dados
+
+Para economizar poder computacional, preferimos realizar o tratamento e a analise de dados no Google BigQuery. Desta forma, realizamos a carga dos arquivos csv brutos existentes no Google Cloud Storage, enviando cada um deles para suas respectivas tabelas, de acordo com o schema criado.
+
+<p align="center">
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/diagrama_DB.png" alt="Image" height="400" width="600"/>
+</p>
+
+Apos a carga das tabelas no Google BigQuery, criamos uma tabela unica com junção das informações das empresas, estabelecimentos, e socios pelo cnpj basico, alem de combinar as colunas com chaves estrangeiras das tabelas de dominio (municipio, pais, motivo, atuação juridica, qualificação do socio e cnae), para facilitar a criação das tabelas utilizadas para a visualização. 
+
+Script automatizado responsavel:
+    run_bigquery.py
+
 - Visualização dos dados
 
-### Deploy
