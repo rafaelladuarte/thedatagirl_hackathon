@@ -7,12 +7,12 @@
 ## Equipe The Data Girls
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200" width="200"/>
 </p>
 
 Participantes:
-- Rafaella Duarte
-- Carolina Dias
+- [Carolina Dias](https://www.linkedin.com/in/carodias/)
+- [Rafaella Duarte](https://www.linkedin.com/in/rafaella-duarte-044276130/)
 
 ### 🟣 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
 ### 🟣 [Demonstraçao da Solução (5 minutos)]()
@@ -66,7 +66,7 @@ Na GCP foram utilizados os seguintes serviços:
 - Google Cloud Engine Computing para rodar os códigos.
 - Google Cloud Storage para o armazenamento dos dados.
 - Google BigQuery para a análise dos dados.
-O Google Data Studio foi utilizado para as visualizações dos dados.
+- Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="400" width="600"/>
@@ -76,8 +76,7 @@ O Google Data Studio foi utilizado para as visualizações dos dados.
 
 Os dados foram extraidos por meio de um scraper que percorre a pagina da Receita Federal, baixamos os arquivos zip e em seguida extraimos os arquivos csv para o Google Cloud Storage. Decidimos enviar para a cloud os dados brutos, para nao ser necessario refazer a coleta para o tratamento dos dados, assim economizando capacidade computacional e tempo.
 
-Script automatizado responsável: 
-    run_storage.py
+Script automatizado responsável ==> run_storage.py
 
 - Tratamento e Análise dos dados
 
@@ -89,9 +88,16 @@ Para economizar poder computacional, preferimos realizar o tratamento e a analis
 
 Apos a carga das tabelas no Google BigQuery, criamos uma tabela unica com junção das informações das empresas, estabelecimentos, e socios pelo cnpj basico, alem de combinar as colunas com chaves estrangeiras das tabelas de dominio (municipio, pais, motivo, atuação juridica, qualificação do socio e cnae), para facilitar a criação das tabelas utilizadas para a visualização. 
 
-Script automatizado responsavel:
-    run_bigquery.py
+Script automatizado responsavel ==> run_bigquery.py
 
 - Visualização dos dados
 
+Como há um volume muito grande de dados, decidimos refletir os dados por meio de dashboards no Google DataStudio, uma ferramente de geração de relatorios compativel com varias ferramentas, incluido o Google BigQuery onde esta nossos dados. Com o Google DataStudio conseguimos gerar relatorios interativos em tempo real, alem de ser uma ferramenta gratuita.
+
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao1.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao2.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao3.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao4.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao5.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao6.png" alt="Image" height="200" width="400"/>
 
