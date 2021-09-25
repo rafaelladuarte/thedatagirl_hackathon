@@ -1,7 +1,7 @@
 # Hackathon de Engenharia de Dados - A3 Data Challenge Women
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="400" width="800"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="250" width="600"/>
 </p>
 
 ## Equipe The Data Girls
@@ -94,10 +94,10 @@ Script automatizado responsavel ==> run_bigquery.py
 
 Como há um volume muito grande de dados, decidimos refletir os dados por meio de dashboards no Google DataStudio, uma ferramente de geração de relatorios compativel com varias ferramentas, incluido o Google BigQuery onde esta nossos dados. Com o Google DataStudio conseguimos gerar relatorios interativos em tempo real, alem de ser uma ferramenta gratuita.
 
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao1.png" alt="Image" height="200" width="400"/>
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao2.png" alt="Image" height="200" width="400"/>
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao3.png" alt="Image" height="200" width="400"/>
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao4.png" alt="Image" height="200" width="400"/>
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao5.png" alt="Image" height="200" width="400"/>
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao6.png" alt="Image" height="200" width="400"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao1.png" alt="Image" height="200" width="350"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao2.png" alt="Image" height="200" width="350"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao3.png" alt="Image" height="200" width="350"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao4.png" alt="Image" height="200" width="350"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao5.png" alt="Image" height="200" width="350"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao6.png" alt="Image" height="200" width="350"/>
 
