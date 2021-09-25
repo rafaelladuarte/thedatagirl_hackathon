@@ -16,8 +16,8 @@ SELECT
     COUNT(*) as quantidade
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
 WHERE situacao_cadastral = 'ATIVA'
-AND data_situ_cadastral > '2010-01-01'
-AND data_situ_cadastral  < '2021-06-01'
+AND data_situ_cadastral >= '2010-01-01'
+AND data_situ_cadastral  <= '2021-06-30'
 GROUP BY 1,2,3,4
 UNION ALL 
 SELECT 
@@ -28,6 +28,6 @@ SELECT
     COUNT(*) as quantidade 
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
 WHERE situacao_cadastral = 'ATIVA'
-AND data_situ_cadastral > '2010-01-01'
-AND data_situ_cadastral  < '2021-06-01'
+AND data_situ_cadastral >= '2010-01-01'
+AND data_situ_cadastral  <= '2021-06-30'
 GROUP BY 1,2,3,4

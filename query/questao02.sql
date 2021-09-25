@@ -14,8 +14,8 @@ SELECT
     FORMAT_DATE('%Y-%m',data_situ_cadastral) AS data_situacao_cadastro,
     COUNT(*) as quantidade
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
-WHERE data_situ_cadastral > '2010-01-01'
-AND data_situ_cadastral  < '2021-06-01'
+WHERE data_situ_cadastral >= '2010-01-01'
+AND data_situ_cadastral  <= '2021-06-30'
 AND situacao_cadastral IN ('NULA','BAIXADA')
 GROUP BY 1,2,3,4
 UNION ALL 
@@ -26,7 +26,7 @@ SELECT
     FORMAT_DATE('%Y-%m',data_situ_cadastral) AS data_situacao_cadastro,
     COUNT(*) as quantidade 
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
-WHERE data_situ_cadastral > '2010-01-01'
-AND data_situ_cadastral  < '2021-06-01'
+WHERE data_situ_cadastral >= '2010-01-01'
+AND data_situ_cadastral  <= '2021-06-30'
 AND situacao_cadastral IN ('NULA','BAIXADA')
 GROUP BY 1,2,3,4

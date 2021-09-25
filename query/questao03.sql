@@ -6,7 +6,6 @@ CREATE TABLE OR REPLACE `hackathon-a3-data.the_data_girls.q2_estabelecimento_fec
     quantidade	INTEGER,	
 )
 
-INSERT INTO `hackathon-a3-data.the_data_girls.q03_empresas_novas` 
 SELECT
     'SIMPLES' as tipo,
     opcao_pelo_simples as opcao,
@@ -14,8 +13,8 @@ SELECT
     FORMAT_DATE('%Y-%m',data_inicio_atividade) AS data_inicio_atividade,
     COUNT(*) as quantidade
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
-WHERE data_inicio_atividade > '2010-01-01'
-AND data_inicio_atividade  < '2021-06-01'
+WHERE data_inicio_atividade >= '2010-01-01'
+AND data_inicio_atividade  <= '2021-06-30'
 GROUP BY 1,2,3,4
 UNION ALL 
 SELECT 
@@ -25,6 +24,6 @@ SELECT
     FORMAT_DATE('%Y-%m',data_inicio_atividade) AS data_inicio_atividade,
     COUNT(*) as quantidade 
 FROM `hackathon-a3-data.the_data_girls.empresa_estabelecimento`
-WHERE data_inicio_atividade > '2010-01-01'
-AND data_inicio_atividade  < '2021-06-01'
+WHERE data_inicio_atividade >= '2010-01-01'
+AND data_inicio_atividade  <= '2021-06-30'
 GROUP BY 1,2,3,4
