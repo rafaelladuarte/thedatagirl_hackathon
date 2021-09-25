@@ -5,6 +5,11 @@
 </p>
 
 ## Equipe The Data Girls
+
+<p align="center">
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200" width="200"/>
+</p>
+
  
 ### Desafio
 
@@ -26,8 +31,6 @@
     * [Visualização dos dados](#visualização-dos-dados)
 * [Deploy](#deploy)
 <!--te-->
-
-
 
 ### Perguntas Chaves
 
