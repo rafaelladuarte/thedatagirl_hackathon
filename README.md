@@ -1,4 +1,4 @@
-# Hackathon de Engenharia de Dados - A3 Data Challenge Woman
+# Hackathon de Engenharia de Dados - A3 Data Challenge Women
 
 <p align="center">
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="400" width="800"/>
@@ -7,20 +7,26 @@
 ## Equipe The Data Girls
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200" width="200"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200"/>
 </p>
 
 Participantes:
-- [Carolina Dias](https://www.linkedin.com/in/carodias/)
-- [Rafaella Duarte](https://www.linkedin.com/in/rafaella-duarte-044276130/)
-    
-### Desafio
+- Rafaella Duarte
+- Carolina Dias
+
+### 🟣 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
+### 🟣 [Demonstraçao da Solução (5 minutos)]()
+### 🟣 [Dashboard com as Respostas](https://datastudio.google.com/u/0/reporting/e24cf11b-9f7d-45ae-864e-807b0b874004/page/p_v4vb5pcunc)
+
+
+## Desafio
+>>>>>>> cc42c5a71770e52a0615123244464acb010021c9
 
 -  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  de  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual;
 - Fonte: Base CNPJ (Dado de 2010 a junho-2021);
 - Livre utilização de ferramentas para compor a solução.
 
-### Tabela de conteúdos
+## Tabela de conteúdos
 <!--ts-->
 * [O Desafio](#desafio)
 * [Tabela de Conteudo](#tabela-de-conteudo)
@@ -33,7 +39,7 @@ Participantes:
     * [Visualização dos dados](#visualização-dos-dados)
 <!--te-->
 
-### Perguntas Chaves
+## Perguntas Chave
 
 1. Número de indústrias ativas por mês/ano entre 2010 - 2021, discriminado por MEI ou Simples, em cada município brasileiro.
 2. Número de comércios que fecharam por mês/ano entre 2010 - 2021, discriminado por MEI ou Simples, em cada município brasileiro.
@@ -42,7 +48,7 @@ Participantes:
 5. Qual a classe de CNAE com o maior capital social médio no Brasil no último ano?
 6. Qual a média do capital social das empresas de pequeno porte por natureza  jurídica no último ano?
 
-### Avaliação
+## Avaliação
 
 As soluções serão avaliadas pelos mentores de acordo com os  seguintes critérios:
 - Escalabilidade;
@@ -51,18 +57,21 @@ As soluções serão avaliadas pelos mentores de acordo com os  seguintes crité
 - Eficiência Operacional;
 - Otimização de Custos.
 
-### Solução
-- Arquitetura
+## Solução
+
+###Arquitetura
+>>>>>>> cc42c5a71770e52a0615123244464acb010021c9
 
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
 Na GCP foram utilizados os seguintes serviços:
-Google Cloud Engine Computing para rodar os códigos.
-Google Cloud Storage para o armazenamento dos dados.
-Google BigQuery para a análise dos dados.
+- Google Cloud Engine Computing para rodar os códigos.
+- Google Cloud Storage para o armazenamento dos dados.
+- Google BigQuery para a análise dos dados.
 O Google Data Studio foi utilizado para as visualizações dos dados.
 
 <p align="center">
+<<<<<<< HEAD
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/arquitetura.png" alt="Image" height="400" width="600"/>
 </p>
 
@@ -87,4 +96,5 @@ Script automatizado responsavel:
     run_bigquery.py
 
 - Visualização dos dados
+
 
