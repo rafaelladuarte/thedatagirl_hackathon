@@ -17,7 +17,7 @@
 ## Links Úteis
 
 ### 🟣 [Pitch da Solução (2 minutos)](https://youtu.be/bd6tAhl_dVQ)
-### 🟣 [Demonstraçao da Solução (5 minutos)](https://www.youtube.com/watch?v=N47zVe8uULk)
+### 🟣 [Demonstração da Solução (5 minutos)](https://www.youtube.com/watch?v=N47zVe8uULk)
 ### 🟣 [Dashboard com as Respostas](https://datastudio.google.com/u/0/reporting/e24cf11b-9f7d-45ae-864e-807b0b874004/page/p_v4vb5pcunc)
 
 ## Tabela de Conteúdos
@@ -34,7 +34,7 @@
 
 ## Desafio
 
--  Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  dos  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual.
+- Os  times  devem  implementar  pipeline  de  extração,  transformação  e  disponibilização  dos  dados.  Após  extração,  limpeza, organização e estruturação dos dados, as perguntas  chave do desafio devem ser respondidas de maneira visual.
 - Fonte: [Base CNPJ](https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/dados-publicos-cnpj) (Dado de 2010 a junho-2021).
 - Livre utilização de ferramentas para compor a solução.
 
@@ -63,7 +63,7 @@ As soluções serão avaliadas pelos mentores de acordo com os seguintes critér
 Foi utilizado o ecossistema do Google para a solução desse problema, em particular a Google Cloud Storage (GCP) e o Google Data Studio. Os motivos para a escolha dessas ferramentas são a facilidade de uso e integração total entre todas as ferramentas, além do baixo custo. Além disso, para contas novas há um bônus de 300 dólares em créditos, influenciando mais ainda a decisão de escolha desse serviço como um todo.
 
 Na GCP foram utilizados os seguintes serviços:
-- Google Cloud Engine Computing para rodar os códigos.
+- Google Cloud Compute Engine para rodar os códigos.
 - Google Cloud Storage para o armazenamento dos dados.
 - Google BigQuery para a análise dos dados.
 - Google Data Studio foi utilizado para as visualizações dos dados.
@@ -76,7 +76,7 @@ Ficamos, finalmente, com a seguinte arquitetura:
 
 ### Extração dos dados
 
-Os dados foram extraidos por meio de um scraper que percorre a página da Receita Federal, baixamos os arquivos .ZIP e em seguida extraímos os arquivos .CSV para o Google Cloud Storage. Decidimos enviar para a cloud os dados brutos, para não ser necessário refazer a coleta para o tratamento dos dados, assim economizando capacidade computacional e tempo.
+Os dados foram extraídos por meio de um scraper que percorre a página da Receita Federal, baixa os arquivos .ZIP e em seguida extrai os arquivos .CSV para o Google Cloud Storage. Decidimos enviar para a cloud os dados brutos para não ser necessário refazer a coleta para o tratamento dos dados, assim economizando capacidade computacional e tempo.
 
 Script automatizado responsável ==> `run_storage.py`
 
@@ -94,7 +94,7 @@ Script automatizado responsavel ==> `run_bigquery.py`
 
 ### Visualização dos Dados
 
-Como há um volume muito grande de dados, decidimos refletir os dados por meio de dashboards no Google DataStudio, uma ferramente de geração de relatórios compatível com várias ferramentas, incluindo o Google BigQuery onde estão nossos dados. Com o Google DataStudio conseguimos gerar relatórios interativos em tempo real, além de ser uma ferramenta gratuita.
+Como há um volume muito grande de dados, decidimos refletir os dados por meio de dashboards no Google DataStudio, uma ferramente de geração de relatórios compatível com várias ferramentas, incluindo o Google BigQuery, onde estão nossos dados. Com o Google DataStudio conseguimos gerar relatórios interativos em tempo real, além de ser uma ferramenta gratuita.
 
 <p align="center">
 <img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/dash_questao1.png" alt="Image" width="400"/> 
@@ -107,7 +107,7 @@ Como há um volume muito grande de dados, decidimos refletir os dados por meio d
 
 ### Contatos
 
-#### 🟣 Rafaela Duarte
+#### 🟣 Rafaella Duarte
 - Github: https://github.com/elladarte
 - Linkedin: https://www.linkedin.com/in/rafaella-duarte-044276130/
 
