@@ -1,17 +1,14 @@
 # Hackathon de Engenharia de Dados - A3 Data Challenge Women
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="250" width="550"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/logo_hackathon.png" alt="Image" height="300" width="600"/>
 </p>
 
-## Equipe The Data Girls 
+## Equipe The Data Girls - ![Generic badge](https://img.shields.io/badge/COLOCACAO-2º.lugar-purple.svg) 🥈
 
 <p align="center">
-<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="150" width="150"/>
+<img src="https://github.com/elladarte/thedatagirl_hackathon/blob/main/images/the_data_girls.png" alt="Image" height="200" width="200"/>
 </p>
-<p align="center">
-![Generic badge](https://img.shields.io/badge/COLOCAÇÃO-2º.lugar-purple.svg)
-</p
 
 ## Participantes
 ### 🟣 [Carolina Dias](https://www.linkedin.com/in/carodias/)
